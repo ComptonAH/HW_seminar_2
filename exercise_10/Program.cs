@@ -12,8 +12,8 @@ if (n>100)
 {
     if (n<999)
     {
-        n = n/10;
-        n = n%10;
+        n /= 10;
+        n %= 10;
         Console.WriteLine($"the second digit is {n}");
     }
     else

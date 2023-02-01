@@ -1,27 +1,31 @@
-﻿// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+﻿// Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
-// 456 -> 5
-// 782 -> 8
-// 918 -> 1
+// 645 -> 5
+// 78 -> третьей цифры нет
+// 32679 -> 6
 
-
-Console.WriteLine("Enter three digit number: ");
-int n = Convert.ToInt32(Console.ReadLine());
-
-if (n>100)
+int FindThirdDigit(int a, int b)
 {
-    if (n<999)
+    int result = 0;
+    if (b<3)
     {
-        n = n/10;
-        n = n%10;
-        Console.WriteLine($"the second digit is {n}");
+        Console.WriteLine("Your number is not contained a third digit, enter at least 3-digit number");
     }
     else
     {
-    Console.WriteLine("You wrote not a 3-digit number, please try again");
+        int c = 1;
+        for (int i = b; i > 3; i--)
+        {
+            c = c * 10;
+        }
+        result = (a/c)%10;
     }
+    return result;
 }
-else
-{
-    Console.WriteLine("You wrote not a 3-digit number, please try again");
-}
+
+Console.WriteLine("Enter an integer 3-digit or more number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+int index = number.ToString().Length;
+
+Console.Write(FindThirdDigit(number,index));
